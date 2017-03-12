@@ -26,9 +26,7 @@ class App extends Component {
 
   setBMI(){
     var bmi = ((this.state.weight / this.state.height / this.state.height) * 10000).toFixed(2);
-    this.setState({bmi: bmi, bmiClass: this.getBMIClass(bmi)}, function(){
-      console.log(this.state);
-    })
+    this.setState({bmi: bmi, bmiClass: this.getBMIClass(bmi)})
   }
 
   getBMIClass(bmi){
@@ -41,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Body Mass Index (BMI) Calculator</h1>
+        <h1 className="heading">Body Mass Index (BMI) Calculator</h1>
 
         <form>
 
@@ -56,9 +54,6 @@ class App extends Component {
           </div>
 
         </form>
-
-        <br />
-        <br />
 
         <Output data={this.state}/>
 
