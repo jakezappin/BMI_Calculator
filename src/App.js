@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Range from "./components/range"
-import Output from "./components/output"
+import Range from "./components/Range"
+import Output from "./components/Output"
 
 
 class App extends Component {
@@ -16,6 +16,18 @@ class App extends Component {
     }
   }
 
+  heightChange(height){
+    this.setState({height: height}, function(){
+      console.log(this.state);
+    });
+  }
+
+  weightChange(weight){
+    this.setState({weight: weight}, function(){
+      console.log(this.state);
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -25,11 +37,12 @@ class App extends Component {
 
           <div>
             <label>Height</label>
-            <Range />
+            <Range value={this.state.height} onChange={this.heightChange.bind(this)}/>
           </div>
 
           <div>
             <label>Weight</label>
+            <Range value={this.state.weight} onChange={this.weightChange.bind(this)}/>
           </div>
 
         </form>
